@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<link rel="icon" href="logo.png" type="image/png" /><link rel="manifest" href="manifest.webmanifest" /><meta name="theme-color" content="#0c2720" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="پرستیژ جمولوژی — پلتفرم آموزش جواهرشناسی؛ دوره‌های الماس، سنگ‌های رنگی، مروارید، اپتیک، گواهی‌نامه و جواهرات شهاب‌سنگی" />
+  <title>پرستیژ جمولوژی | آموزش تخصصی جواهرشناسی</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">پرش به محتوای اصلی</a>
+
+  <!-- ===================== هدر و ناوبری ===================== -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home">
+        <img src="logo.png" alt="Prestige Gemology" style="height:56px;width:auto;object-fit:contain;">
+      </a>
+      <nav class="nav-links" aria-label="ناوبری اصلی">
+        <a href="#home" data-route="home">خانه</a>
+        <a href="#courses" data-route="courses">دوره‌ها</a>
+        <a href="#pricing" data-route="pricing">تعرفه‌ها</a>
+        <a href="#dashboard" data-route="dashboard">داشبورد</a>
+        <a href="#support" data-route="support">پشتیبانی</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn btn-ghost btn-sm" id="btn-login">ورود</button>
+        <button class="btn btn-primary btn-sm" id="btn-register">ثبت‌نام</button>
+        <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="باز و بسته کردن منو">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="ناوبری موبایل">
+      <a href="#home" data-route="home">خانه</a>
+      <a href="#courses" data-route="courses">دوره‌ها</a>
+      <a href="#pricing" data-route="pricing">تعرفه‌ها</a>
+      <a href="#dashboard" data-route="dashboard">داشبورد</a>
+      <a href="#support" data-route="support">پشتیبانی</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ===================== صفحه خانه ===================== -->
+    <section class="page" id="page-home" aria-label="صفحه اصلی">
+      <div class="container">
+        <div class="hero">
+          <div>
+            <span class="kicker">آموزش تخصصی جواهرشناسی از مبتدی تا حرفه‌ای</span>
+            <h1>دنیای درخشان گوهرها را حرفه‌ای بیاموزید</h1>
+            <p>
+              با آکادمی پرستیژ قدم‌به‌قدم با دنیای گوهرشناسی آشنا شوید.
+              نسخه اولیه با دوره متنی نمونه، حساب کاربری و ذخیره پیشرفت یادگیری در دسترس شماست.
+            </p>
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="#courses">مشاهده دوره‌ها</a>
+              <a class="btn btn-ghost" href="#pricing">تعرفه‌های عضویت</a>
+            </div>
+          </div>
+          <div class="hero-art"><img src="logo.png" alt="نشان برند پرستیژ" /></div>
+        </div>
+
+        <div class="stats" id="home-stats"><div class="stat card"><b>۱۲</b><span>درس متنی نمونه</span></div><div class="stat card"><b>۱</b><span>دوره مقدماتی</span></div><div class="stat card"><b>رایگان</b><span>دسترسی آزمایشی</span></div></div><div class="section-head">
+          <h2 class="section-title" style="margin:0">دوره‌های منتخب</h2>
+          <a class="btn btn-ghost btn-sm" href="#courses">همه دوره‌ها</a>
+        </div>
+        <div class="grid-courses" id="home-featured" aria-live="polite">
+          <!-- اسکلت‌نما تا بارگذاری -->
+          <div class="card skeleton-card" aria-hidden="true"><div class="course-body"><div class="sk sk-thumb"></div><div class="sk sk-line" style="width:70%"></div><div class="sk sk-line" style="width:45%"></div><div class="sk sk-line" style="width:55%"></div></div></div>
+          <div class="card skeleton-card" aria-hidden="true"><div class="course-body"><div class="sk sk-thumb"></div><div class="sk sk-line" style="width:60%"></div><div class="sk sk-line" style="width:50%"></div><div class="sk sk-line" style="width:40%"></div></div></div>
+          <div class="card skeleton-card" aria-hidden="true"><div class="course-body"><div class="sk sk-thumb"></div><div class="sk sk-line" style="width:65%"></div><div class="sk sk-line" style="width:38%"></div><div class="sk sk-line" style="width:52%"></div></div></div>
+        </div>
+
+        <h2 class="section-title" style="margin-top: var(--sp-8)">مسیر یادگیری شما</h2>
+        <div class="testimonials" id="home-testimonials"></div>
+      </div>
+    </section>
+
+    <!-- ===================== صفحه دوره‌ها ===================== -->
+    <section class="page" id="page-courses" aria-label="لیست دوره‌ها">
+      <div class="container">
+        <div class="page-head">
+          <div class="kicker">آکادمی پرستیژ</div>
+          <h1>دوره‌های آموزشی</h1>
+          <p>با فیلترها و جست‌وجو، دوره مناسب خود را پیدا کنید.</p>
+        </div>
+        <div class="toolbar">
+          <div class="tabs" role="tablist" aria-label="فیلتر سطح" id="level-tabs">
+            <button class="tab" role="tab" aria-selected="true" data-level="all">همه سطوح</button>
+            <button class="tab" role="tab" aria-selected="false" data-level="beginner">مبتدی</button>
+            <button class="tab" role="tab" aria-selected="false" data-level="intermediate">متوسط</button>
+            <button class="tab" role="tab" aria-selected="false" data-level="advanced">پیشرفته</button>
+          </div>
+          <div class="search-box">
+            <input type="search" id="course-search" placeholder="جست‌وجوی دوره…" aria-label="جست‌وجوی دوره" />
+          </div>
+        </div>
+        <div class="tabs" role="tablist" aria-label="فیلتر موضوع" id="topic-tabs" style="margin-bottom: var(--sp-5)">
+          <button class="tab" role="tab" aria-selected="true" data-topic="all">همه</button>
+        </div>
+        <div class="grid-courses" id="courses-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ===================== صفحه جزئیات دوره ===================== -->
+    <section class="page" id="page-course-detail" aria-label="جزئیات دوره">
+      <div class="container" id="course-detail-root"></div>
+    </section>
+
+    <!-- ===================== صفحه تعرفه‌ها ===================== -->
+    <section class="page" id="page-pricing" aria-label="تعرفه‌های عضویت">
+      <div class="container">
+        <div class="page-head">
+          <div class="kicker">عضویت</div>
+          <h1>تعرفه‌های عضویت</h1>
+          <p>تعرفه‌های پیشنهادی؛ درخواست شما ثبت می‌شود. درگاه پرداخت هنوز متصل نیست و اشتراکی فعال نمی‌شود.</p>
+        </div>
+        <div class="pricing-grid" id="pricing-grid"></div>
+      </div>
+    </section>
+
+    <!-- ===================== صفحه داشبورد ===================== -->
+    <section class="page" id="page-dashboard" aria-label="داشبورد دانشجو"><div class="container"><p>در حال دریافت اطلاعات حساب…</p></div></section>
+
+    <!-- ===================== صفحه پشتیبانی ===================== -->
+    <section class="page" id="page-support" aria-label="پشتیبانی">
+      <div class="container">
+        <div class="page-head">
+          <div class="kicker">همراه شما هستیم</div>
+          <h1>پشتیبانی و تماس</h1>
+          <p>سؤال خود را ثبت کنید و پاسخ را از داشبورد پیگیری کنید.</p>
+        </div>
+        <div class="support-grid">
+          <div class="card panel">
+            <h2>فرم تماس</h2>
+            <form class="form-grid" id="contact-form" novalidate>
+              <div class="field">
+                <label for="cf-name">نام و نام خانوادگی</label>
+                <input id="cf-name" name="name" type="text" required minlength="3" maxlength="80" autocomplete="name" />
+                <div class="err">لطفاً نام خود را وارد کنید (حداقل ۳ حرف).</div>
+              </div>
+              <div class="field">
+                <label for="cf-email">ایمیل</label>
+                <input id="cf-email" name="email" type="email" required autocomplete="email" dir="ltr" style="text-align:left" />
+                <div class="err">لطفاً یک ایمیل معتبر وارد کنید.</div>
+              </div>
+              <div class="field">
+                <label for="cf-topic">موضوع</label>
+                <select id="cf-topic" name="topic" required>
+                  <option value="">انتخاب کنید…</option>
+                  <option>سؤال درباره دوره‌ها</option>
+                  <option>مشکل پرداخت</option>
+                  <option>گواهی‌نامه و آزمون</option>
+                  <option>سایر موارد</option>
+                </select>
+                <div class="err">لطفاً موضوع را انتخاب کنید.</div>
+              </div>
+              <div class="field">
+                <label for="cf-msg">پیام</label>
+                <textarea id="cf-msg" name="message" required minlength="10" maxlength="5000"></textarea>
+                <div class="err">لطفاً پیام خود را بنویسید (حداقل ۱۰ حرف).</div>
+              </div>
+              <button class="btn btn-primary" type="submit">ارسال پیام</button>
+            </form>
+          </div>
+          <div>
+            <div class="card panel">
+              <h2>کانال‌های ارتباطی</h2>
+              <div class="channels">
+                <a class="channel" href="#support" data-toast="به‌زودی به واتساپ وصل می‌شوید!">
+                  <span class="c-ico" aria-hidden="true">💬</span>
+                  <div><b>واتساپ</b><span>09331621362</span></div>
+                </a>
+                <a class="channel" href="#support" data-toast="صفحه اینستاگرام ما را دنبال کنید!">
+                  <span class="c-ico" aria-hidden="true">📸</span>
+                  <div><b>اینستاگرام</b><span>@prestige.gemology</span></div>
+                </a>
+                <a class="channel" href="mailto:support@prestige-gemology.ir">
+                  <span class="c-ico" aria-hidden="true">✉️</span>
+                  <div><b>ایمیل</b><span dir="ltr">support@prestige-gemology.ir</span></div>
+                </a>
+              </div>
+            </div>
+            <div class="card panel" style="margin-top: var(--sp-5)">
+              <h2>سؤالات پرتکرار</h2>
+              <div class="accordion" id="faq-accordion"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <section class="page" id="page-lesson" aria-label="مطالعه درس"><div class="container" id="lesson-root"></div></section>
+</main>
+
+  <!-- ===================== فوتر ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="#home"><img src="logo.png" alt="Prestige Gemology" style="height:40px;width:auto;object-fit:contain;vertical-align:middle;"></a>
+        <p style="opacity:.85; font-size:var(--fs-sm); max-width:38ch">
+          آکادمی پرستیژ؛ مسیری برای شروع یادگیری گوهرشناسی.
+        </p>
+      </div>
+      <div>
+        <h3>دسترسی سریع</h3>
+        <ul>
+          <li><a href="#courses">دوره‌ها</a></li>
+          <li><a href="#pricing">تعرفه‌ها</a></li>
+          <li><a href="#dashboard">داشبورد</a></li>
+          <li><a href="#support">پشتیبانی</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>تماس</h3>
+        <ul>
+          <li><span dir="ltr">support@prestige-gemology.ir</span></li>
+          <li><span dir="ltr">09331621362</span></li>
+          <li>تهران</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      © ۱۴۰۵ پرستیژ جمولوژی — تمامی حقوق محفوظ است.
+    </div>
+  </footer>
+
+  <!-- ===================== مودال ورود / ثبت‌نام ===================== -->
+  <div class="modal-backdrop" id="auth-backdrop">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+      <button class="modal-close" id="auth-close" aria-label="بستن پنجره">✕</button>
+      <h2 id="auth-title" style="font-size: var(--fs-lg)">خوش آمدید 👋</h2>
+      <div class="auth-tabs" role="tablist" aria-label="ورود یا ثبت‌نام">
+        <button class="auth-tab" role="tab" id="tab-login" aria-selected="true" aria-controls="form-login">ورود</button>
+        <button class="auth-tab" role="tab" id="tab-register" aria-selected="false" aria-controls="form-register">ثبت‌نام</button>
+      </div>
+
+      <form class="auth-form active" id="form-login" role="tabpanel" aria-labelledby="tab-login" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="lg-email">ایمیل</label>
+            <input id="lg-email" type="email" required dir="ltr" style="text-align:left" />
+            <div class="err">ایمیل معتبر وارد کنید.</div>
+          </div>
+          <div class="field">
+            <label for="lg-pass">رمز عبور</label>
+            <input id="lg-pass" type="password" required minlength="8" maxlength="128" dir="ltr" style="text-align:left" />
+            <div class="err">رمز عبور حداقل ۸ کاراکتر باشد.</div>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">ورود به حساب</button>
+        </div>
+      </form>
+
+      <form class="auth-form" id="form-register" role="tabpanel" aria-labelledby="tab-register" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="rg-name">نام و نام خانوادگی</label>
+            <input id="rg-name" type="text" required minlength="3" maxlength="80" autocomplete="name" />
+            <div class="err">نام حداقل ۳ حرف باشد.</div>
+          </div>
+          <div class="field">
+            <label for="rg-email">ایمیل</label>
+            <input id="rg-email" type="email" required dir="ltr" style="text-align:left" />
+            <div class="err">ایمیل معتبر وارد کنید.</div>
+          </div>
+          <div class="field">
+            <label for="rg-pass">رمز عبور</label>
+            <input id="rg-pass" type="password" required minlength="8" maxlength="128" dir="ltr" style="text-align:left" />
+            <div class="err">رمز عبور حداقل ۸ کاراکتر باشد.</div>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">ساخت حساب</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ناحیه توست‌ها -->
+  <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="false"></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
