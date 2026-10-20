@@ -1,0 +1,9 @@
+data/*
+!data/.gitkeep
+node_modules/
+.env
+*.log
+original/
+tools/
+*.zip
+test-results/

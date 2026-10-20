@@ -1,0 +1,10 @@
+{
+  "name": "prestige-gemology",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Prestige Gemology Persian learning web application",
+  "type": "module",
+  "engines": { "node": ">=24.0.0" },
+  "scripts": { "start": "node server.mjs", "test": "node --test tests/*.test.mjs" },
+  "repository": { "type": "git", "url": "https://github.com/mrtahakhansari-maker/-.git" }
+}
