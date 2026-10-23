@@ -51,7 +51,22 @@ test('account, enrollment, isolation, progress, persistence, support and subscri
   await request('orders',{plan:'pro'});await request('orders',{plan:'pro'});
   assert.equal((await request('dashboard')).body.orders.length,1);
   assert.equal((await request('dashboard')).body.orders[0].status,'pending');
-  const publicCatalog=(await request('catalog')).body;assert.equal(publicCatalog.lessons.length,12);assert.equal(publicCatalog.lessons[0].content,undefined);
+  const publicCatalog=(await request('catalog')).body;
+  assert.deepEqual(publicCatalog.courses.map(c=>c.level),['beginner','intermediate','advanced']);
+  assert.equal(publicCatalog.lessons.length,18);assert.equal(publicCatalog.lessons[0].content,undefined);
+  for (const course of publicCatalog.courses) {
+    const lessons=publicCatalog.lessons.filter(l=>l.courseId===course.id);
+    assert.equal(lessons.length,course.lessons);
+    const image=await fetch(origin+'/'+course.image);
+    assert.equal(image.status,200);assert.match(image.headers.get('content-type'),/image\/svg\+xml/);
+  }
+  assert.equal((await request('lessons/13')).status,403);
+  assert.equal((await request('enroll',{courseId:2},other.cookie)).status,200);
+  assert.equal((await request('lessons/13',undefined,other.cookie)).status,200);
+  assert.equal((await request('complete',{lessonId:13},other.cookie)).status,200);
+  assert.equal((await request('lessons/16',undefined,other.cookie)).status,403);
+  assert.equal((await request('enroll',{courseId:3},other.cookie)).status,200);
+  assert.equal((await request('lessons/16',undefined,other.cookie)).status,200);
   await stop();await start();
   assert.equal((await request('dashboard')).body.completions.length,1);
   assert.equal((await request('dashboard')).body.tickets.length,1);
@@ -61,4 +76,6 @@ test('account, enrollment, isolation, progress, persistence, support and subscri
   assert.equal((await fetch(origin+'/server.mjs')).status,404);
   assert.equal((await fetch(origin+'/data/prestige.sqlite')).status,404);
   const page=await fetch(origin+'/');assert.ok(page.headers.get('content-security-policy'));assert.equal(page.status,200);
+  const emeraldScript=await fetch(origin+'/emerald.js');assert.equal(emeraldScript.status,200);
+  const emeraldModel=await fetch(origin+'/assets/colombian-emerald.glb');assert.equal(emeraldModel.status,200);assert.match(emeraldModel.headers.get('content-type'),/model\/gltf-binary/);
 });
