@@ -53,12 +53,12 @@ test('account, enrollment, isolation, progress, persistence, support and subscri
   assert.equal((await request('dashboard')).body.orders[0].status,'pending');
   const publicCatalog=(await request('catalog')).body;
   assert.deepEqual(publicCatalog.courses.map(c=>c.level),['beginner','intermediate','advanced']);
-  assert.equal(publicCatalog.lessons.length,18);assert.equal(publicCatalog.lessons[0].content,undefined);
+  assert.equal(publicCatalog.lessons.length,19);assert.equal(publicCatalog.lessons[0].content,undefined);
   for (const course of publicCatalog.courses) {
     const lessons=publicCatalog.lessons.filter(l=>l.courseId===course.id);
     assert.equal(lessons.length,course.lessons);
     const image=await fetch(origin+'/'+course.image);
-    assert.equal(image.status,200);assert.match(image.headers.get('content-type'),/image\/svg\+xml/);
+    assert.equal(image.status,200);assert.match(image.headers.get('content-type'),/image\/(svg\+xml|jpeg)/);
   }
   assert.equal((await request('lessons/13')).status,403);
   assert.equal((await request('enroll',{courseId:2},other.cookie)).status,200);

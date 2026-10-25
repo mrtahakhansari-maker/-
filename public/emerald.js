@@ -38,7 +38,7 @@
         mat3 rot=rotation();
         vec3 o=rot*vec3(0.,2.9,5.4);vec3 forward=normalize(vec3(0.,-2.9,-5.4));
         vec3 right=vec3(1.,0.,0.);vec3 up=normalize(cross(right,forward));
-        vec3 d=rot*normalize(forward+uv.x*right*2.65+uv.y*up*2.65);
+        vec3 d=rot*normalize(forward+uv.x*right*.75+uv.y*up*.75);
         float lo,hi;vec3 n,farN;
         float halo=exp(-dot(uv,uv)*3.);vec3 background=bg+vec3(.015,.045,.028)*halo;
         if(!hit(o,d,lo,hi,n,farN)){gl_FragColor=vec4(background,1.);return;}
@@ -105,6 +105,8 @@
   activeCanvas.addEventListener('pointerup',()=>{dragging=false;});activeCanvas.addEventListener('pointercancel',()=>{dragging=false;});
   new ResizeObserver(()=>{const r=activeCanvas.getBoundingClientRect();w=r.width;h=r.height;const dpr=drawGL?Math.min(devicePixelRatio||1,1.25):Math.min(devicePixelRatio||1,2);activeCanvas.width=Math.round(w*dpr);activeCanvas.height=Math.round(h*dpr);if(ctx)ctx.setTransform(dpr,0,0,dpr,0,0);schedule();}).observe(activeCanvas);
   new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;schedule();}).observe(root);
+  visible=true;
+  requestAnimationFrame(()=>{schedule();});
   document.addEventListener('visibilitychange',schedule);
   root.addEventListener('keydown',e=>{
     if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home'].includes(e.key))return;

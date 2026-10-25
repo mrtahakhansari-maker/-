@@ -135,10 +135,10 @@ const server = http.createServer(async (req, res) => {
       fail(404, 'مسیر پیدا نشد.');
     }
     if (!['GET', 'HEAD'].includes(req.method)) fail(405, 'روش درخواست مجاز نیست.');
-    const allowed = new Set(['/', '/index.html', '/app.js', '/emerald.js', '/styles.css', '/logo.png', '/manifest.webmanifest', '/assets/colombian-emerald.glb', '/assets/emerald.svg', '/assets/course-beginner.svg', '/assets/course-intermediate.svg', '/assets/course-advanced.svg']);
+    const allowed = new Set(['/', '/index.html', '/app.js', '/ui.js', '/local-store.js', '/catalog.js', '/responsive.css', '/emerald.js', '/styles.css', '/logo.png', '/manifest.webmanifest', '/assets/course-beginner.jpg', '/assets/course-diamond.jpg', '/assets/course-advanced.jpg', '/assets/colombian-emerald.glb', '/assets/emerald.svg', '/assets/course-beginner.svg', '/assets/course-intermediate.svg', '/assets/course-advanced.svg']);
     if (!allowed.has(path)) fail(404, 'فایل پیدا نشد.');
     const file = resolve(publicRoot, path === '/' ? 'index.html' : path.slice(1));
-    const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.glb': 'model/gltf-binary', '.svg': 'image/svg+xml', '.png': 'image/png', '.webmanifest': 'application/manifest+json' };
+    const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.glb': 'model/gltf-binary', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.png': 'image/png', '.webmanifest': 'application/manifest+json' };
     const buffer = readFileSync(file); res.writeHead(200, { 'Content-Type': types[extname(file)], 'Cache-Control': 'no-cache' }); res.end(req.method === 'HEAD' ? undefined : buffer);
   } catch (e) { if (!e.status) console.error(e.message); if (!res.headersSent) json(res, e.status || 500, { error: e.status ? e.message : 'خطای سرور؛ دوباره تلاش کنید.' }); else res.end(); }
 });

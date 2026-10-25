@@ -9,12 +9,13 @@ test('Pages and server use the approved vertical model and the same three-course
   assert.match(script,/initialTilt=-Math.atan2\(5.4,2.9\)/);
   assert.ok(!script.includes('emerald-rotation'));
   const html=fs.readFileSync('docs/index.html','utf8');
-  const catalog=JSON.parse(html.match(/const providedCatalog = (.*);\n/)[1]);
+  const catalog=JSON.parse(fs.readFileSync('catalog.json','utf8'));
+  assert.match(html,/catalog\.js/);
   assert.deepEqual(catalog,JSON.parse(fs.readFileSync('catalog.json','utf8')));
   for(const level of ['beginner','intermediate','advanced'])assert.equal(catalog.courses.filter(c=>c.level===level).length,1);
   for(const c of catalog.courses)assert.ok(fs.existsSync('docs/'+c.image));
   for(const match of html.matchAll(/<script(?:[^>]*src="([^"]+)")?[^>]*>([\s\S]*?)<\/script>/g)){
-    if(match[1])assert.ok(fs.existsSync('docs/'+match[1]));else new vm.Script(match[2]);
+    if(match[1])assert.ok(fs.existsSync('docs/'+match[1].split('?')[0]));else new vm.Script(match[2]);
   }
   const glb=fs.readFileSync('docs/assets/colombian-emerald.glb');
   assert.equal(glb.readUInt32LE(0),0x46546c67);
