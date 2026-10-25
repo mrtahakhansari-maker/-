@@ -2,7 +2,7 @@
 // Explicitly local demo profiles: no remote authentication, SMS or message delivery.
 const PrestigeStore=(()=>{
  const KEY='prestige-demo-accounts-v2',SESSION='prestige-demo-session-v2';
- const phone=value=>{let s=String(value||'').replace(/[۰-۹]/g,c=>String('۰۱۲۳۴۵۶۷۸۹'.indexOf(c))).replace(/[٠-٩]/g,c=>String('٠١٢٣٤٥٦٧٨٩'.indexOf(c))).replace(/[\s()-]/g,'');if(s.startsWith('+98'))s='0'+s.slice(3);if(s.startsWith('0098'))s='0'+s.slice(4);return s;};
+ const phone=value=>{let s=String(value||'').replace(/[\u06F0-\u06F9]/g,c=>String(c.charCodeAt(0)-0x06F0)).replace(/[\u0660-\u0669]/g,c=>String(c.charCodeAt(0)-0x0660)).replace(/[\s()-]/g,'');if(s.startsWith('+98'))s='0'+s.slice(3);if(s.startsWith('0098'))s='0'+s.slice(4);return s;};
  function read(){try{const d=JSON.parse(localStorage.getItem(KEY)||'{"accounts":{}}');return d&&d.accounts&&typeof d.accounts==='object'&&!Array.isArray(d.accounts)?d:{accounts:{}};}catch{return {accounts:{}};}}
  function write(d){try{localStorage.setItem(KEY,JSON.stringify(d));}catch{throw Error('مرورگر اجازه ذخیره حساب آزمایشی را نمی‌دهد.');}}
  function active(){try{return localStorage.getItem(SESSION)||sessionStorage.getItem(SESSION)||'';}catch{return '';}}
