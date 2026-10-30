@@ -16,3 +16,15 @@ test('all four diamond lessons are accessible to visitors without registering',(
   assert.deepEqual(mounts,[13,14,15,19]);
   vm.runInContext('renderDetail(2)',context);start.onclick();assert.equal(location.hash,'lesson?id=13');
 });
+
+test('the router displays the requested page on startup and navigation',()=>{
+  const script=fs.readFileSync('public/ui.js','utf8');
+  const source=script.slice(script.indexOf('function route(){'),script.indexOf("$('#btn-logout').onclick"));
+  const pages=['home','courses','lesson'].map(name=>({id:'page-'+name,active:false,classList:{toggle(_name,on){this.owner.active=on}}}));
+  for(const page of pages)page.classList.owner=page;
+  const elements={'#lesson-root':{replaceChildren(){}},'#mobile-menu':{classList:{remove(){}}},'#hamburger':{setAttribute(){}}};
+  const ctx=vm.createContext({location:{hash:'#home'},history:{replaceState(){}},PrestigeStore:{user:()=>null},accountUI(){},user:null,$:s=>elements[s],$$:s=>s==='.page'?pages:[],URLSearchParams,attempt:fn=>fn(),window:{scrollTo(){}},setTimeout(){},document:{querySelector(){return null}},localStorage:{getItem(){return null}},langKey:'language',renderCourses(){},renderDetail(){},renderLesson(){},renderDashboard(){},renderAccount(){},renderRegister(){},renderLogin(){},translateAuthPage(){}});
+  vm.runInContext(source+'\nroute()',ctx);assert.equal(pages[0].active,true);
+  ctx.location.hash='#courses';vm.runInContext('route()',ctx);assert.equal(pages[0].active,false);assert.equal(pages[1].active,true);
+  ctx.location.hash='#lesson?id=13';vm.runInContext('route()',ctx);assert.equal(pages[2].active,true);
+});
