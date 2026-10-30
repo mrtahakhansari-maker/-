@@ -135,7 +135,7 @@ const server = http.createServer(async (req, res) => {
       fail(404, 'مسیر پیدا نشد.');
     }
     if (!['GET', 'HEAD'].includes(req.method)) fail(405, 'روش درخواست مجاز نیست.');
-    const allowed = new Set(['/', '/index.html', '/app.js', '/ui.js', '/local-store.js', '/catalog.js', '/responsive.css', '/emerald.js', '/styles.css', '/logo.png', '/manifest.webmanifest', '/assets/course-beginner.jpg', '/assets/course-diamond.jpg', '/assets/course-advanced.jpg', '/assets/colombian-emerald.glb', '/assets/emerald.svg', '/three.min.js', '/diamond-model.js', '/translate-init.js', '/auth-i18n.js', '/assets/course-beginner.svg', '/assets/course-intermediate.svg', '/assets/course-advanced.svg']);
+    const allowed = new Set(['/', '/index.html', '/app.js', '/ui.js', '/local-store.js', '/catalog.js', '/responsive.css', '/emerald.js', '/styles.css', '/logo-small.png', '/logo.png', '/manifest.webmanifest', '/assets/course-beginner.jpg', '/assets/course-diamond.jpg', '/assets/course-advanced.jpg', '/assets/colombian-emerald.glb', '/assets/emerald.svg', '/three.min.js', '/diamond-loader.js', '/diamond-model.js', '/translate-init.js', '/auth-i18n.js', '/assets/course-beginner.svg', '/assets/course-intermediate.svg', '/assets/course-advanced.svg']);
     if (!allowed.has(path)) fail(404, 'فایل پیدا نشد.');
     const file = resolve(publicRoot, path === '/' ? 'index.html' : path.slice(1));
     const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.glb': 'model/gltf-binary', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.png': 'image/png', '.webmanifest': 'application/manifest+json' };
